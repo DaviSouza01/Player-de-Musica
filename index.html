@@ -6,12 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player de Música</title>
 
+    <link rel="stylesheet" type="text/css" href="icones-site/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 
 <body>
+    <img src="imagens/imagem-happy.jpg" alt="Happy">
+    <div class="descricao">
+        <h2>Nome da música</h2>
+        <i>Autor da música</i>
+    </div>
+    <div class="duracao">
+        <div id="barra">
+            <progress value="0" max="1"></progress>
+            <div id="bola"></div>
+        </div>
 
+        <div id="tempo">
+            <p id="inicio">0:00</p>
+            <p id="fim">3:12</p>
+        </div>
+    </div>
+
+    <div class="icones-duracao">
+        <i class="fa-solid fa-backward-step"></i>
+        <i class="fa-solid fa-play"></i>
+        <i class="fa-solid fa-pause"></i>
+        <i class="fa-solid fa-forward-step"></i>
+    </div>
+    
+    <audio src="musicas/Pharrell Williams - Happy (Video).mp3"></audio>
 </body>
 
 </html>
