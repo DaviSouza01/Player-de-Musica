@@ -1,10 +1,81 @@
 img {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
 }
 
 body, html{
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #000022;
+    color: #f4eded;
+    font-family: 'Nunito', sans-serif;
+}
+
+.descricao {
+    width: 280px;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+.duracao {
+    margin-top: 25px;
+    width: 280px;
+}
+
+#barra {
+    width: 280px;
+    height: 6px;
+    border: 1px solid #f4eded;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+progress {
+    height: 6px;
+    width: 50%;
+}
+
+#bola {
+    width: 20px;
+    height: 20px;
+    background-color: #f4eded;
+    border-radius: 50%;
+    display: flex;
+    margin-left: -4px;
+}
+
+.tempo {
+    display:flex;
+    width: 280px;
+    justify-content: space-between;
+}
+
+.icones-duracao {
+    width: 280px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.iconPlay, .iconPause {
+    font-size: 45px;
+    cursor: pointer;
+}
+.iconDireita, .iconEsquerda {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.iconPause {
+    display: none;
 }
