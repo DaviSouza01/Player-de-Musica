@@ -5,9 +5,9 @@ let imagem = document.querySelector('img');
 let nomeDaMusica = document.querySelector('.descricao h2');
 let nomeDoArtista = document.querySelector('.descricao i');
 
-duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
-
 // Eventos 
+
+window.onload = duration;
 
 document.querySelector('.iconPlay').addEventListener('click', tocarMusica);
 
@@ -16,6 +16,10 @@ document.querySelector('.iconPause').addEventListener('click', pausarMusica);
 musica.addEventListener('timeupdate', atualizarBarra);
 
 // Funções
+
+function duration(){
+    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+}
 
 function tocarMusica(){
     musica.play();
