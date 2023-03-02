@@ -1,9 +1,19 @@
-let musica = document.querySelector('audio');
+let musicas = [
+    {titulo: 'Happy', artista: 'Pharrell Williams', src: 'musicas/Pharrell Williams - Happy (Video).mp3', img:'imagens/imagem-happy.jpg'}, 
+    {titulo: 'Rude',  artista: 'MAGIC!', src: 'musicas/MAGIC! - Rude.mp3', img:'imagens/imagem-rude.jpg'},
+    {titulo: 'Chop Suey!',  artista: 'System Of A Down', scr: 'musicas/System Of A Down - Chop Suey!.mp3', img:'imagens/imagem-soad.jpg'},
+    {titulo: 'Tiro ao alvaro',  artista: 'Elis Regina & Adoniran Barbosa', src: 'Elis Regina & Adoniran Barbosa - Tiro ao alvaro.mp3', img:'imagem-tiroAlvaro.jpg'},
+    {titulo: 'João e Maria',  artista: 'Chico Buarque', src: 'chico buarque - joao e maria.mp3', img:'imagem-joao-e-maria.jpg'}
+];
 
+let musica = document.querySelector('audio');
+let indexMusica = 0;
 let duracaoMusica = document.querySelector('#fim');
 let imagem = document.querySelector('img');
 let nomeDaMusica = document.querySelector('.descricao h2');
 let nomeDoArtista = document.querySelector('.descricao i');
+
+//renderizarMusica(indexMusica);
 
 // Eventos 
 
@@ -15,7 +25,29 @@ document.querySelector('.iconPause').addEventListener('click', pausarMusica);
 
 musica.addEventListener('timeupdate', atualizarBarra);
 
+document.querySelector('.iconEsquerda').addEventListener('click', () => {
+    indexMusica--;
+    alert(indexMusica)
+    renderizarMusica(indexMusica);
+});
+
+document.querySelector('.iconDireita').addEventListener('click', () => {
+    indexMusica++;
+    alert(indexMusica)
+    renderizarMusica(indexMusica);
+});
+
 // Funções
+
+function renderizarMusica(index){
+    musica.setAttribute('src', musicas[index].src);  
+    musica.addEventListener('loadeddata', () => {
+        nomeDaMusica.textContent = musicas[index].titulo
+        nomeDoArtista.textContent = musicas[index].artista
+        imagem.src = musicas[index].img;
+        duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+    });  
+}
 
 function duration(){
     duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
@@ -49,3 +81,4 @@ function segundosParaMinutos(segundos){
 
     return campoMinutos+':'+campoSegundos;
 }
+
