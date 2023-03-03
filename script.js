@@ -36,6 +36,7 @@ musica.addEventListener('ended', () => {
   }); 
 
 document.querySelector('.iconEsquerda').addEventListener('click', () => {
+    aux++;
     indexMusica--;
     if(indexMusica == -1){
         indexMusica = 4
@@ -44,6 +45,7 @@ document.querySelector('.iconEsquerda').addEventListener('click', () => {
 });
 
 document.querySelector('.iconDireita').addEventListener('click', () => {
+    aux++;
     indexMusica++;
     if(indexMusica == 5){
         indexMusica = 0
