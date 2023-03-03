@@ -13,8 +13,9 @@ let duracaoMusica = document.querySelector('#fim');
 let imagem = document.querySelector('img');
 let nomeDaMusica = document.querySelector('.descricao h2');
 let nomeDoArtista = document.querySelector('.descricao i');
+var aux = 0;
 
-renderizarMusica(indexMusica);
+renderizarMusica(indexMusica, aux);
 
 // Eventos 
 
@@ -31,7 +32,7 @@ musica.addEventListener('ended', () => {
     if(indexMusica == 5){
         indexMusica = 0
     }
-    renderizarMusica(indexMusica)
+    renderizarMusica(indexMusica, aux)
   }); 
 
 document.querySelector('.iconEsquerda').addEventListener('click', () => {
@@ -39,7 +40,7 @@ document.querySelector('.iconEsquerda').addEventListener('click', () => {
     if(indexMusica == -1){
         indexMusica = 4
     }
-    renderizarMusica(indexMusica);
+    renderizarMusica(indexMusica, aux)
 });
 
 document.querySelector('.iconDireita').addEventListener('click', () => {
@@ -47,12 +48,12 @@ document.querySelector('.iconDireita').addEventListener('click', () => {
     if(indexMusica == 5){
         indexMusica = 0
     }
-    renderizarMusica(indexMusica);
+    renderizarMusica(indexMusica, aux)
 });
 
 // Funções
 
-function renderizarMusica(index){
+function renderizarMusica(index, aux){
     musica.setAttribute('src', musicas[index].src);
     musica.addEventListener('loadeddata', () => {
         nomeDaMusica.textContent = musicas[index].titulo
@@ -60,7 +61,9 @@ function renderizarMusica(index){
         imagem.src = musicas[index].img;
         duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
         atualizarBarra()
-        tocarMusica();
+        if(aux>0){
+            tocarMusica();
+        }
     }); 
     
 }
@@ -70,6 +73,7 @@ function duration(){
 }
 
 function tocarMusica(){
+    aux++;
     musica.play();
     document.querySelector('.iconPause').style.display = 'block';
     document.querySelector('.iconPlay').style.display = 'none';
@@ -78,7 +82,7 @@ function tocarMusica(){
         if(indexMusica == 5){
             indexMusica = 0
         }
-        renderizarMusica(indexMusica)
+        renderizarMusica(indexMusica, aux)
     }
 }
 

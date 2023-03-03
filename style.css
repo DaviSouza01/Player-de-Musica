@@ -76,6 +76,10 @@ progress {
     cursor: pointer;
 }
 
+.iconPlay{
+    display: block;
+}
+
 .iconPause {
     display: none;
 }
