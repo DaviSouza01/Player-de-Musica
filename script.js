@@ -52,7 +52,6 @@ document.querySelector('.iconDireita').addEventListener('click', () => {
 });
 
 // Funções
-
 function renderizarMusica(index, aux){
     musica.setAttribute('src', musicas[index].src);
     musica.addEventListener('loadeddata', () => {
